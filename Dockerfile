@@ -1,10 +1,10 @@
 # References:
 #   https://hub.docker.com/r/solarce/zoom-us
 #   https://github.com/sameersbn/docker-skype
-FROM debian:bullseye-slim
-MAINTAINER mdouchement
+FROM debian:bookworm-slim
+LABEL MAINTAINER=mdouchement
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Refresh package lists
 RUN apt-get update && \
@@ -19,7 +19,7 @@ RUN apt-get update && \
 		libxcb-shape0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 \
 		libxcb-keysyms1 libxcb-xtest0 ibus ibus-gtk \
 		libxcb-xinerama0 libxkbcommon-x11-0 \
-		libxcb-cursor0 libxcb-icccm4 \
+		libxcb-cursor0 libxcb-icccm4 libatomic1 \
 		libnss3 libxss1 xcompmgr pulseaudio && \
 	 apt-get clean -y && \
 	 apt-get autoremove -y && \
